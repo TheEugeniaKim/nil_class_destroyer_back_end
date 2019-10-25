@@ -17,11 +17,16 @@ class Api::V1::SessionsController < ApplicationController
         
     end
 
-    def update
-        user = User.find_by(user_id: params[:user])
-        session = 
-        render json: session
-    end 
+    def show
+        session = Session.find(params[:id])
+        render json: session 
+    end
+
+    # def update
+    #     byebug
+    #     session = Session.update(score : params[:score])
+    #     render json: session
+    # end 
 
 
     def high_score
