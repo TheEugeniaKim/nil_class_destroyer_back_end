@@ -22,17 +22,16 @@ class Api::V1::SessionsController < ApplicationController
         render json: session 
     end
 
-    # def update
+    def update
+        session = Session.find(params["id"])
+        session.update(score: params["score"])
+        render json: session
+    end 
+
+
+    # def high_score
+    #     sessions = Sessions.all.sortby{|session| session.score}
     #     byebug
-    #     session = Session.update(score : params[:score])
-    #     render json: session
-    # end 
-
-
-    def high_score
-        sessions = Session.all
-        byebug
-        sessions = sesssions.map{|session| session.score}
-    end
-
+    # end
+    
 end
